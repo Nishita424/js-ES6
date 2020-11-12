@@ -1,9 +1,17 @@
 async function getUsers() {
-  const promise = fetch('http://api.icndb.com/jokes/random/3');
+  const response = await fetch('http://api.icndb.com/jokes/random/3');
 
-  const res = await promise;
-
-  return res;
+  response
+    .then((res) => await res.json())
+    .then((data) => data)
+    .catch((err) => err);
+    
+  /*
+    await has no effect of expressions like below:
+    const res = await response;
+  */
 }
 
-getUsers().then((res) => console.log(res));
+getUsers()
+.then((res) => console.log(res))
+.catch(err => console.log(err));
