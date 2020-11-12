@@ -1,5 +1,6 @@
 document.getElementById('txt').addEventListener('click', loadTextData);
 
+/*
 function loadTextData() {
   fetch('./input/text.txt')
     .then(function (response) {
@@ -13,4 +14,16 @@ function loadTextData() {
     .catch(function (err) {
       console.log(err);
     });
+}
+*/
+
+// Modifying the function with arrow function
+function loadTextData() {
+  fetch('./input/text.txt')
+    .then((response) => response.text())
+    .then((data) => {
+      console.log(data);
+      document.getElementById('output1').innerHTML = data;
+    })
+    .catch((err) => console.log(err));
 }
