@@ -1,3 +1,5 @@
+// Using ES5 and callbacks
+
 // constructor
 function EasyHttp() {
   this.http = new XMLHttpRequest();
